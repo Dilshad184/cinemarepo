@@ -1,17 +1,15 @@
-# Use nginx alpine for lightweight web server
-FROM nginx:alpine
+# Use official Python runtime as base image
+FROM python:3.9-alpine
 
-# Remove default nginx website
-RUN rm -rf /usr/share/nginx/html/*
+# Set working directory in container
+WORKDIR /app
 
-# Copy our index.html to nginx web directory
-COPY index.html /usr/share/nginx/html/
+# Copy the current directory contents into the container
+COPY index.html .
 
-# Copy custom nginx configuration (optional)
-COPY nginx.conf /etc/nginx/nginx.conf
+# Expose port 8000 for the web server
+EXPOSE 8000
 
-# Expose port 80
-EXPOSE 80
-
-# Start nginx
-CMD ["nginx", "-g", "daemon off;"]
+# Command to run Python's built-in HTTP server
+# This serves files on port 8000
+CMD ["python", "-m", "http.server", "8000"]
