@@ -80,6 +80,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
         }
 
         .logo {
@@ -104,6 +106,7 @@
             display: flex;
             gap: 2rem;
             align-items: center;
+            flex-wrap: wrap;
         }
 
         .nav-links a {
@@ -218,6 +221,7 @@
             margin-bottom: 1rem;
             color: var(--gray);
             font-size: 0.9rem;
+            flex-wrap: wrap;
         }
 
         .movie-rating {
@@ -292,12 +296,14 @@
             align-items: center;
             gap: 0.8rem;
             margin: 2rem 0;
+            overflow-x: auto;
         }
 
         .seat-row {
             display: flex;
             justify-content: center;
             gap: 0.8rem;
+            flex-wrap: wrap;
         }
 
         .seat {
@@ -340,6 +346,7 @@
             justify-content: center;
             gap: 2rem;
             margin: 2rem 0;
+            flex-wrap: wrap;
         }
 
         .legend-item {
@@ -411,7 +418,6 @@
         @media (max-width: 768px) {
             .nav-container {
                 flex-direction: column;
-                gap: 1rem;
             }
             
             .hero h1 {
@@ -426,6 +432,10 @@
             
             .seat-row {
                 gap: 0.5rem;
+            }
+            
+            .movies-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             }
         }
     </style>
